@@ -17,7 +17,6 @@ type SignUpRequest = {
   name: string;
   email: string;
   password: string;
-  type:number;
 };
 
 export const SignUpPage = () => {
@@ -34,7 +33,7 @@ export const SignUpPage = () => {
             nome:data.name,
             email:data.email,
             senha:data.password,
-            //tipo:data.type
+            tipo:1
           })
       }catch(err){
         console.log(err)

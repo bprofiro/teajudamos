@@ -11,11 +11,13 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
 import { Container, CreateUserContent } from './styles';
+import api from '~/services/api';
 
 type SignUpHealthProfessionalRequest = {
   name: string;
   email: string;
   password: string;
+  crmCrp:string;
 };
 
 export const SignUpHealthProfessionalPage = () => {
@@ -27,10 +29,17 @@ export const SignUpHealthProfessionalPage = () => {
   const handleSubmit = useCallback(
     async (data: SignUpHealthProfessionalRequest) => {
       console.log({ data });
-
-      // Eu to usando o unform pra pegar os valores dos formulários,
-      // então quando o usuário der o submit, o "data" vai ser um objeto com os valores do input,
-      // tudo pronto pra mandar pra API.
+      try{
+        await api.post('/user/create',{
+          nome:data.name,
+          email:data.email,
+          senha:data.password,
+          tipo:2,
+          crmCrp:data.crmCrp
+        })
+    }catch(err){
+      console.log(err)
+    }
 
       setIsCreatingUser(true);
 
@@ -73,7 +82,7 @@ export const SignUpHealthProfessionalPage = () => {
             label="E-mail:"
           />
           <Input
-            name="crp-or-crm"
+            name="crmCrp"
             placeholder="Insira o número do seu CRM"
             label="CRP ou CRM"
           />
