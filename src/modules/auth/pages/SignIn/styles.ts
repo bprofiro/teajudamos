@@ -25,6 +25,7 @@ export const Container = styled.section`
       margin-bottom: 20px;
       font-size: 20px;
       line-height: 28px;
+      opacity: 0.8;
     }
   }
 `;
@@ -41,6 +42,7 @@ export const CreateUserContent = styled.div`
   span {
     display: inline-flex;
     gap: 4px;
+    opacity: 0.8;
   }
 
   a:hover {
