@@ -11,6 +11,7 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
 import { Container, CreateUserContent } from './styles';
+import api from '~/services/api';
 
 type SignUpRequest = {
   name: string;
@@ -25,15 +26,19 @@ export const SignUpPage = () => {
   const [isCreatingUser, setIsCreatingUser] = useState(false);
 
   const handleSubmit = useCallback(
-    async (data: SignUpRequest) => {
-      console.log({ data });
-
-      // Eu to usando o unform pra pegar os valores dos formulários,
-      // então quando o usuário der o submit, o "data" vai ser um objeto com os valores do input,
-      // tudo pronto pra mandar pra API.
-
+      async (data: SignUpRequest) => {
+      console.log({ data});
+      try{
+          await api.post('/user/create',{
+            nome:data.name,
+            email:data.email,
+            senha:data.password,
+            tipo:1
+          })
+      }catch(err){
+        console.log(err)
+      }
       setIsCreatingUser(true);
-
       router.push('/auth/sign-in');
       setIsCreatingUser(false);
     },
