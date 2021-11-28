@@ -1,6 +1,3 @@
-import { GetServerSideProps } from 'next';
-import { useRef } from 'react';
-
 import { withAuth } from '~/hocs/withAuth';
 import { FeedLayout } from '~/layouts/FeedLayout';
 
@@ -19,16 +16,16 @@ export const ProfessionalHelpPage = () => {
 
           <div>
             <ProfessionalCard
-              name="Brenda Profiro"
-              description="Psicóloga formada na UFABC"
+              name="Ariel Araujo"
+              description="Neuropediatra formado na UFMG"
             />
             <ProfessionalCard
-              name="Brenda Profiro"
-              description="Psicóloga formada na UFABC"
+              name="Laura Costa"
+              description="Pediatra formado na USP"
             />
             <ProfessionalCard
-              name="Brenda Profiro"
-              description="Psicóloga formada na UFABC"
+              name="Anderson Silva"
+              description="Fonoaudiólogo formado na UFMG"
             />
           </div>
         </DoctorsContainer>
@@ -55,4 +52,4 @@ export const ProfessionalHelpPage = () => {
   );
 };
 
-export const ProfessionalHelp = ProfessionalHelpPage;
+export const ProfessionalHelp = withAuth(ProfessionalHelpPage);

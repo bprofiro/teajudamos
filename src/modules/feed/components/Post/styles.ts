@@ -35,6 +35,9 @@ export const Container = styled.section`
   }
 
   main {
+    display: flex;
+    justify-content: flex-start;
+
     p {
       font-size: 18px;
       line-height: 22px;

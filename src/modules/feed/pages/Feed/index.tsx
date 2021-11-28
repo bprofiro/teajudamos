@@ -1,8 +1,12 @@
+import { format } from 'date-fns';
 import { GetServerSideProps } from 'next';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { withAuth } from '~/hocs/withAuth';
 import { useAuth } from '~/hooks/useAuth';
 import { FeedLayout } from '~/layouts/FeedLayout';
+import api from '~/services/api';
 
 import { Posts } from '@/feed/types';
 import { FormHandles } from '@unform/core';
@@ -16,11 +20,28 @@ type PageProps = {
   posts: Posts[];
 };
 
-export const FeedPage = ({ posts }: PageProps) => {
+type PublicPostRequest = {
+  postContent: string;
+};
+
+export const FeedPage = ({ posts: ssrData }: PageProps) => {
+  const [posts, setPosts] = useState<Posts[]>(() => ssrData);
   const { user } = useAuth();
 
-  const handlePostSubmit = (data) => {
-    console.log({ data });
+  const handlePostSubmit = (data: PublicPostRequest) => {
+    const newPost: Posts = {
+      id: uuidv4(),
+      content: data.postContent,
+      comentario: [],
+      dateTime: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
+      likes: 0,
+      usuario: {
+        id: user.id,
+        nome: user.name,
+      },
+    };
+
+    setPosts([newPost, ...posts]);
   };
 
   return (
@@ -54,7 +75,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
           dateTime: '2021-11-28T17:21:08.000+00:00',
           usuario: {
             id: 1,
-            nome: 'Wellington Bezerra',
+            nome: 'wellingtonsouza2504@gmail.com',
             email: 'wellingtonsouza2504@gmail.com',
             tipo: 'PAI',
             likes: 0,
@@ -68,4 +89,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-export const Feed = FeedPage;
+export const Feed = withAuth(FeedPage);

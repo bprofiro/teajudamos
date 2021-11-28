@@ -1,10 +1,28 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FiChevronUp } from 'react-icons/fi';
 
 import { Container, LinksSection, Logo, ActionSection } from './styles';
 
 export const Footer = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      const pageHasScroll = document.body.clientHeight > window.innerHeight;
+
+      setShowButton(pageHasScroll);
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  function backToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   return (
     <Container>
       <div>
@@ -39,9 +57,11 @@ export const Footer = () => {
         </LinksSection>
 
         <ActionSection>
-          <button>
-            <FiChevronUp size={24} />
-          </button>
+          {showButton && (
+            <button onClick={backToTop}>
+              <FiChevronUp size={24} />
+            </button>
+          )}
         </ActionSection>
       </div>
     </Container>

@@ -5,6 +5,7 @@ import { useCallback, useRef } from 'react';
 
 import { useAuth } from '~/hooks/useAuth';
 import { AuthLayout } from '~/layouts/AuthLayout';
+import api from '~/services/api';
 
 import { Button } from '@/auth/components/Button';
 import { Input } from '@/auth/components/Input';
@@ -12,7 +13,6 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
 import { Container, CreateUserContent } from './styles';
-import api from '~/services/api';
 
 type SignInRequest = {
   email: string;
@@ -27,14 +27,16 @@ export const SignInPage = () => {
   const handleSubmit = useCallback(
     async (data: SignInRequest) => {
       try {
-        await api.post('/login', {
+        const response = await api.post('/login', {
           email: data.email,
-          senha: data.password
-        })
+          senha: data.password,
+        });
+
+        console.log({ response });
         await signIn({ email: data.email, password: data.password });
         router.push('/feed');
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
     [router, signIn],

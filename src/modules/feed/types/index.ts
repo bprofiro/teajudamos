@@ -3,9 +3,8 @@ export type Posts = {
   content: string;
   dateTime: string;
   likes: number;
-  comments: string[];
   usuario: {
-    id: number;
+    id: number | string;
     nome: string;
   };
   comentario: string[];
