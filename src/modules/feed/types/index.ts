@@ -1,10 +1,12 @@
 export type Posts = {
   id: number;
   content: string;
+  dateTime: string;
   likes: number;
   comments: string[];
-  author: {
+  usuario: {
     id: number;
-    name: string;
-  }
-}
+    nome: string;
+  };
+  comentario: string[];
+};
