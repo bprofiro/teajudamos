@@ -50,7 +50,7 @@ export const CreateUserContent = styled.div`
   }
 
   p {
-    max-width: 370px;
+    max-width: 415px;
     text-align: center;
     opacity: 0.8;
 

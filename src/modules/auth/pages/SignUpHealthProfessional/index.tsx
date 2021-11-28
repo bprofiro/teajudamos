@@ -11,35 +11,29 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
 import { Container, CreateUserContent } from './styles';
-import api from '~/services/api';
 
-type SignUpRequest = {
+type SignUpHealthProfessionalRequest = {
   name: string;
   email: string;
   password: string;
-  type:number;
 };
 
-export const SignUpPage = () => {
+export const SignUpHealthProfessionalPage = () => {
   const formRef = useRef<FormHandles>(null);
   const router = useRouter();
 
   const [isCreatingUser, setIsCreatingUser] = useState(false);
 
   const handleSubmit = useCallback(
-      async (data: SignUpRequest) => {
-      console.log({ data});
-      try{
-          await api.post('/user/create',{
-            nome:data.name,
-            email:data.email,
-            senha:data.password,
-            //tipo:data.type
-          })
-      }catch(err){
-        console.log(err)
-      }
+    async (data: SignUpHealthProfessionalRequest) => {
+      console.log({ data });
+
+      // Eu to usando o unform pra pegar os valores dos formulários,
+      // então quando o usuário der o submit, o "data" vai ser um objeto com os valores do input,
+      // tudo pronto pra mandar pra API.
+
       setIsCreatingUser(true);
+
       router.push('/auth/sign-in');
       setIsCreatingUser(false);
     },
@@ -48,9 +42,9 @@ export const SignUpPage = () => {
 
   return (
     <AuthLayout
-      title="Cadastro"
-      image="understand-community"
-      imageAlt="Quatro pessoas em cima de um celular azul trocando mensagens"
+      title="Cadastro De Profissionais da Saúde"
+      image="health-professional"
+      imageAlt="Um médico negro de cabelos curtos e óculos de braços cruzados e ao seu redor vários comprimidos"
       imagePosition="left"
     >
       <Container>
@@ -61,18 +55,28 @@ export const SignUpPage = () => {
           width={200}
         />
         <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça parte da comunidade</h1>
+          <h1>Faça parte da Equipe!</h1>
 
           <p>
-            Muito legal ter você conosco! Realize seu cadastro e faça parte
-            dessa linda comunidade 😍
+            Você gosta de ajudar pessoas e quer contribuir conosco nessa
+            jornada? Então faça parte da comunidade como profissional da saúde e
+            colabore!
           </p>
           <Input
             name="name"
             placeholder="Digite seu nome completo"
             label="Nome completo:"
           />
-          <Input name="email" placeholder="E-mail" label="E-mail:" />
+          <Input
+            name="email"
+            placeholder="Insira o seu melhor e-mail"
+            label="E-mail:"
+          />
+          <Input
+            name="crp-or-crm"
+            placeholder="Insira o número do seu CRM"
+            label="CRP ou CRM"
+          />
           <Input
             name="password"
             placeholder="Senha"
@@ -94,11 +98,11 @@ export const SignUpPage = () => {
           </span>
 
           <p>
-            Ou
-            <Link href="/auth/sign-up/health-professional" passHref>
+            Não é um profissional da saúde?
+            <Link href="/auth/sign-in" passHref>
               <a>cadastre-se</a>
             </Link>
-            como Profissional da saúde
+            e faça parte dessa comunidade!
           </p>
         </CreateUserContent>
       </Container>
@@ -106,4 +110,4 @@ export const SignUpPage = () => {
   );
 };
 
-export const SignUp = SignUpPage;
+export const SignUpHealthProfessional = SignUpHealthProfessionalPage;
