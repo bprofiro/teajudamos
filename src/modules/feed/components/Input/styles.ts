@@ -6,22 +6,6 @@ interface ContainerProps {
   isErrored: boolean;
 }
 
-export const Container = styled.div`
-  width: 100%;
-  max-width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  label {
-    margin-bottom: 8px;
-  }
-
-  & + div {
-    margin-top: 16px;
-  }
-`;
-
 export const InputContainer = styled.div<ContainerProps>`
   width: 450px;
   height: 48px;

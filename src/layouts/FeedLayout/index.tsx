@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 
+import { Header } from './components/Header';
 import { Container } from './styles';
 
 type LayoutProps = {
@@ -14,6 +15,8 @@ export const FeedLayout = ({ children, title }: LayoutProps) => {
       <Head>
         <title>{title} | TEAjudamos</title>
       </Head>
+
+      <Header />
 
       <main>{children}</main>
     </Container>
