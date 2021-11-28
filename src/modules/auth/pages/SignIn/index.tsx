@@ -12,6 +12,7 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
 import { Container, CreateUserContent } from './styles';
+import api from '~/services/api';
 
 type SignInRequest = {
   email: string;
@@ -25,9 +26,16 @@ export const SignInPage = () => {
 
   const handleSubmit = useCallback(
     async (data: SignInRequest) => {
-      await signIn({ email: data.email, password: data.password });
-
-      router.push('/feed');
+      try {
+        await api.post('/login', {
+          email: data.email,
+          senha: data.password
+        })
+        await signIn({ email: data.email, password: data.password });
+        router.push('/feed');
+      } catch (err) {
+        console.log(err)
+      }
     },
     [router, signIn],
   );
