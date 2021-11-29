@@ -1,34 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  TEAjudamos
+</h1>
 
-## Getting Started
+<h3 align="center">
+  📚 Uma plataforma criada com o intuito de ajudar socialmente pais de crianças com TEA, criando uma comunidade entre eles e com o apoio de profissionais da área da saúde.
+</h3>
 
-First, run the development server:
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/bprofiro/teajudamos?color=%2304D361">
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/bprofiro/teajudamos">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <a href="https://github.com/bprofiro/teajudamos/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bprofiro/teajudamos">
+  </a>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <a href="https://github.com/bprofiro/teajudamos/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/bprofiro/teajudamos?style=social">
+  </a>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+  <a href="https://github.com/bprofiro/">
+    <img alt="Feito pela Brenda" src="https://img.shields.io/badge/feito%20pela-Brenda-%237519C1">
+  </a>
+</p>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![image](https://user-images.githubusercontent.com/59852846/143797451-b2c33a37-bf6e-44b7-acd9-0e1177b16f28.png)
 
-## Learn More
+<p align="center">
+  <a href="https://teajudamos.herokuapp.com/" target="_blank">
+    <img alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1599785319/readme_logos/demo_on_netlify_umjmch.png">
+  </a>
+</p>
 
-To learn more about Next.js, take a look at the following resources:
+<h4 align="center">
+	Concluído 🚀
+</h4>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Tabela de conteúdos
+=================
+<!--ts-->
+- [Tabela de conteúdos](#tabela-de-conteúdos)
+  - [🛠 Tecnologias](#-tecnologias)
+      - [**Web**](#web)
+  - [💪 Como contribuir no projeto](#-como-contribuir-no-projeto)
+  - [🦸 Autor](#-autor)
+  - [📝 Licença](#-licença)
+<!--te-->
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
+## 🛠 Tecnologias
 
-## Deploy on Vercel
+Escolhemos essas tecnologias devido o fato de querermos uma plataforma que seja possível ter a indexação pelo Google e todo o trabalho de SEO, para assim atingirmos um grupo mais de pessoas e consequente, impactar mais vidas e colaborar para um melhor desenvolvimento de pessoas com TEA.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### **Web**
+
+-   **[React](https://pt-br.reactjs.org/)**
+-   **[React Icons](https://react-icons.github.io/react-icons/)**
+-   **[Styled-components](https://styled-components.com/)**
+-   **[NextJS](https://nextjs.org/docs/getting-started)**
+-   **[Unform](https://unform.dev/quick-start/)**
+
+---
+
+## 💪 Como contribuir no projeto
+
+1. Faça um **fork** do projeto.
+2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
+3. Salve as alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`
+4. Envie as suas alterações: `git push origin my-feature`
+> Caso tenha alguma dúvida confira este [guia de como contribuir no GitHub](./CONTRIBUTING.md)
+
+---
+
+## 🦸 Autor
+<p align="center">
+  <a href="https://github.com/bprofiro">
+  <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/59852846?s=460&u=7eefe48768a2c3f95271868f85d8e61f9ffbebad&v=4" width="100px;" alt=""/>
+  <br />
+  <sub><b>Brenda Profiro</b></sub></a> <a href="https://blog-bprofiro.vercel.app/" title="Blog Pessoal">🚀</a>
+  <br />
+</p>
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+Feito com ❤️ por Brenda Profiro 👋🏽 [Entre em contato!](https://www.linkedin.com/in/brenda-profiro/)
+
+---
